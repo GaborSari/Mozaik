@@ -1,0 +1,39 @@
+<table class="ui celled table" *ngIf='!loading'>
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Name</th>
+            <th>Deleted</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let county of counties">
+            <td (click)="reload()">{{county.getId()}}</td>
+            <td><i>{{county.getName()}}</i></td>
+            <td>{{county.getDeleted()}}</td>
+            <td>
+                <div class="ui three icon buttons">
+                    <button class="ui yellow icon button"><i class="edit icon"></i></button>
+                    <button class="ui red icon button"><i class="trash icon"></i></button>
+                </div>
+            </td>
+        </tr>
+    </tbody>
+    <tfoot class="full-width">
+        <tr>
+            <th></th>
+            <th colspan="4">
+                <div class="ui right floated small primary labeled icon button">
+                    <i class="plus icon"></i> Add County
+                </div>
+            </th>
+        </tr>
+    </tfoot>
+</table>
+<div class="ui raised segment" *ngIf='loading' style="min-height: 20vh;">
+    <div class="ui active dimmer">
+        <div class="ui text loader">Loading</div>
+    </div>
+    <p></p>
+</div>

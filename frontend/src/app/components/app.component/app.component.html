@@ -1,0 +1,33 @@
+<div class="ui grid">
+  <div class="row">
+  </div>
+  <div class="centered row">
+    <div class="ten wide computer only fifteen wide tablet only fifteen wide mobile only column">
+      <h1 class="ui header">{{title}}</h1>
+    </div>
+  </div>
+
+  <div class="centered row" *ngIf="errors.length">
+    <div class="ten wide computer only fifteen wide tablet only fifteen wide mobile only column">
+      <div class="ui red raised segment">
+        <div class="ui compact menu">
+          <a class="item">
+            <i class="bell users"></i> Errors
+            <div class="floating ui red label">{{errors.length}}</div>
+          </a>
+        </div>
+        <div class="ui bulleted list">
+          <div class="item" *ngFor="let error of errors">
+            <div class="ui red label">{{error.message}}</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="centered row" [style.height]="height + 'px'">
+    <div class="seven wide computer only fifteen wide tablet only fifteen wide mobile only column">
+      <counties></counties>
+    </div>
+  </div>
+</div>
